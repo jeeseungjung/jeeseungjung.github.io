@@ -23,11 +23,11 @@ function loadPlayer() {
   var uri = "";
   
   if (widevine_test) {
-    uri = "https://storage.googleapis.com/wvmedia/2020/cenc/h264/llama/24/llama.mpd"
+    uri = "https://storage.googleapis.com/wvmedia/cenc/h264/30fps/llama/llama_720p.mpd"
     player.configure({
       drm: {
         servers: {
-          'com.widevine.alpha': 'https://proxy.uat.widevine.com/proxy?provider=widevine_test&video_id=GTS_HW_SECURE_CRYPTO'
+          'com.widevine.alpha': 'https://proxy.uat.widevine.com/proxy?provider=widevine_test&video_id=GTS_PER_RESOLUTION_480P_ONLY'
         }
       }
     });
@@ -176,7 +176,7 @@ var pause_test = false;
 var seek_test = false;
 function timeupdate_handler() {
   document.querySelector('#info').textContent = "\r\n####### currentTime: " + document.querySelector('#player').currentTime;
-  if (widevine_test && check_time(21)) {
+  if (widevine_test && check_time(61)) {
     widevine_test = false;
     unload_media(function() {
     });
